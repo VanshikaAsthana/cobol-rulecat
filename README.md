@@ -1,4 +1,4 @@
-\# RuleCat: Secure COBOL Rule Extraction
+# RuleCat: Secure COBOL Rule Extraction
 
 
 
@@ -10,7 +10,7 @@ Built by Team Aparajitas for IBM Z Datathon 2026.
 
 
 
-\## Problem
+## Problem
 
 
 
@@ -18,33 +18,33 @@ Banks can't safely change or audit decades-old COBOL because few people can expl
 
 
 
-\## What it does
+## What it does
 
 
 
-\- Parses COBOL procedure logic (IF, EVALUATE, COMPUTE) by paragraph
+- Parses COBOL procedure logic (IF, EVALUATE, COMPUTE) by paragraph
 
-\- Uses a local LLM (Ollama) to explain each rule in plain English
+- Uses a local LLM (Ollama) to explain each rule in plain English
 
-\- Links every rule to its exact source lines
+- Links every rule to its exact source lines
 
-\- Flags doubtful rules: missing ELSE, missing WHEN OTHER, GO TO, arithmetic without ROUNDED, or an unsure LLM
+- Flags doubtful rules: missing ELSE, missing WHEN OTHER, GO TO, arithmetic without ROUNDED, or an unsure LLM
 
-\- Saves a searchable catalog to `rules.json`
-
-
-
-\## Requirements
+- Saves a searchable catalog to `rules.json`
 
 
 
-\- Python 3.8+ (standard library only, nothing to pip install)
-
-\- \[Ollama](https://ollama.com) with a local model
+## Requirements
 
 
 
-\## Run it
+- Python 3.8+ (standard library only, nothing to pip install)
+
+- [Ollama](https://ollama.com) with a local model
+
+
+
+## Run it
 
 
 
@@ -66,7 +66,7 @@ If Ollama isn't running, the tool still works and shows the raw code as the expl
 
 
 
-\## Project layout
+## Project layout
 
 
 
@@ -80,13 +80,13 @@ sample/acctcalc.cbl   synthetic banking COBOL program
 
 
 
-\## Example output
+## Example output
 
 
 
 ```
 
-\[R003] CALC-FEE lines 30-34
+[R003] CALC-FEE lines 30-34
 
 &#x20; The code checks if the current balance is less than 1000 and, if so,
 
@@ -94,41 +94,41 @@ sample/acctcalc.cbl   synthetic banking COBOL program
 
 
 
-\[R004] CHECK-LOAN lines 36-38  ! no ELSE branch
+[R004] CHECK-LOAN lines 36-38  ! no ELSE branch
 
 ```
 
 
 
-\## IBM Z / LinuxONE
+## IBM Z / LinuxONE
 
 
 
-LinuxONE is the intended deployment target: source code and the rule catalog stay inside the bank's infrastructure. The current prototype is portable Python and has \*\*not yet been tested on s390x\*\*. Testing on s390x-compatible runtimes (e.g. llama.cpp) is planned.
+LinuxONE is the intended deployment target: source code and the rule catalog stay inside the bank's infrastructure. The current prototype is portable Python and has **not yet been tested on s390x**. Testing on s390x-compatible runtimes (e.g. llama.cpp) is planned.
 
 
 
-\## Limitations and roadmap
+## Limitations and roadmap
 
 
 
-\- LLM explanations can contain small errors, which is why rules show exact source lines and flags for human review
+- LLM explanations can contain small errors, which is why rules show exact source lines and flags for human review
 
-\- Planned: accuracy benchmark against a hand-labeled set of 30-50 rules, behavior checks on synthetic transactions, copybook and CICS/DB2 support, web UI
-
-
-
-\## Open-source resources
+- Planned: accuracy benchmark against a hand-labeled set of 30-50 rules, behavior checks on synthetic transactions, copybook and CICS/DB2 support, web UI
 
 
 
-\- \[Ollama](https://github.com/ollama/ollama) and \[Llama 3.2](https://ollama.com/library/llama3.2)
-
-\- Python standard library
+## Open-source resources
 
 
 
-\## Team
+- [Ollama](https://github.com/ollama/ollama) and \[Llama 3.2](https://ollama.com/library/llama3.2)
+
+- Python standard library
+
+
+
+## Team
 
 
 
